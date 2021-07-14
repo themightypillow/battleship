@@ -4,14 +4,14 @@ import Gameboard from "../src/Gameboard";
 describe('Player', () => {
   test('create Player', () => {
     const board = Gameboard(2, 2);
-    expect(Object.keys(Player(board, 2, 2, false))).toEqual([
+    expect(Object.keys(Player(board, 2, false))).toEqual([
       'play'
     ]);
   });
 
   describe('human player', () => {
     const board = Gameboard(2, 2);
-    const human = Player(board, 2, 2, true);
+    const human = Player(board, 2, true);
 
     test('make legal move', () => {      
       expect(human.play(0, 0)).toEqual({
@@ -29,12 +29,12 @@ describe('Player', () => {
 
   describe('computer player', () => {
     const board = Gameboard(2, 2);
+    const computer = Player(board, 2, false);
 
-    test('make random legal move', () => {
-      const computer = Player(board, 2, 2, false);
+    test('make a legal move', () => {
       const {row, column} = computer.play();
-      expect(row > 0 && row < 2).toBeTruthy();
-      expect(column > 0 && column < 2).toBeTruthy();
+      expect(row >= 0 && row < 2).toBeTruthy();
+      expect(column >= 0 && column < 2).toBeTruthy();
     });
     test('cannot make play after all spaces attacked', () => {
       computer.play();
