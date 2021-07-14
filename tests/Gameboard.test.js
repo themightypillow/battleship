@@ -13,11 +13,11 @@ describe('Gameboard', () => {
     const board = Gameboard(2, 2);
     expect(board.place(0, 0, 1, 0)).toBe(true);
   });
-  xtest('cannot place diagonal ship', () => {
+  test('cannot place diagonal ship', () => {
     const board = Gameboard(2, 2);
     expect(() => board.place(0, 0, 1, 1)).toThrow('Cannot place diagonal ship');
   });
-  xtest('cannot place overlapping ships', () => {
+  test('cannot place overlapping ships', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
     expect(() => board.place(0, 0, 0, 1)).toThrow('Ship overlaps with another');
