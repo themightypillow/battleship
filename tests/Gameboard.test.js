@@ -52,12 +52,33 @@ describe('Gameboard', () => {
       [{ attacked: false, ship: null }, { attacked: false, ship: null }]
     ]);
   });
-  xtest('board with ship is represented', () => {
+  xtest('board with vertical ship is represented', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
     const boardArray = board.get();
     expect(boardArray[0][0].ship).toBeNull();
     expect(boardArray[1][0].ship).toBeNull();
+  });
+  xtest('board with vertical ship with no order is represented', () => {
+    const board = Gameboard(2, 2);
+    board.place(1, 0, 0, 0);
+    const boardArray = board.get();
+    expect(boardArray[0][0].ship).toBeNull();
+    expect(boardArray[1][0].ship).toBeNull();
+  });
+  xtest('board with horizontal ship is represented', () => {
+    const board = Gameboard(2, 2);
+    board.place(0, 0, 0, 1);
+    const boardArray = board.get();
+    expect(boardArray[0][0].ship).toBeNull();
+    expect(boardArray[0][1].ship).toBeNull();
+  });
+  xtest('board with horizontal ship with no order is represented', () => {
+    const board = Gameboard(2, 2);
+    board.place(0, 1, 0, 0);
+    const boardArray = board.get();
+    expect(boardArray[0][0].ship).toBeNull();
+    expect(boardArray[0][1].ship).toBeNull();
   });
   xtest('board with missed attack is represented', () => {
     const board = Gameboard(2, 2);
