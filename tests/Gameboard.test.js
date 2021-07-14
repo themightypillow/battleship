@@ -43,8 +43,8 @@ describe('Gameboard', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
     const boardArray = board.get();
-    const ship = [boardArray[0][0].ship !== null, boardArray[1][0].ship !== null]
-    expect(ship).toEqual([true, true]);
+    expect(boardArray[0][0].ship).toBeNull();
+    expect(boardArray[1][0].ship).toBeNull();
   });
   xtest('board with missed attack is represented', () => {
     const board = Gameboard(2, 2);
