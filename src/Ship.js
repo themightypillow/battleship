@@ -1,10 +1,12 @@
 const Ship = (length) => {
-  const hitSpots = [];
-  const hit = (n) => {
-    hitSpots.push(n);
+  const spots = Array.from(Array(length), () => false);
+  const hit = (i) => {
+    if(spots[i]) throw new Error('Ship already hit here');
+    spots[i] = true;
+    return true;
   };
   const isSunk = () => {
-    return hitSpots.length === length;
+    return spots.every(spot => spot === true);
   };
   return {
     hit,

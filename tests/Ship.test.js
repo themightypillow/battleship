@@ -7,21 +7,30 @@ describe('Ship', () => {
       "isSunk"
     ]);
   });
-  test('ship hit once and up', () => {
+  test('ship is hit', () => {
     const ship = Ship(2);
-    ship.hit(1);
+    expect(ship.hit(0)).toBe(true);
+  });
+  test('cannot hit ship twice in same spot', () => {
+    const ship = Ship(2);
+    ship.hit(0);
+    expect(() => ship.hit(0)).toThrow('Ship already hit here');
+  });
+  test('ship is not sunk after one hit', () => {
+    const ship = Ship(2);
+    ship.hit(0);
     expect(ship.isSunk()).toBeFalsy();
   });
-  test('ship hit twice and up', () => {
+  test('ship is not sunk after two hits', () => {
     const ship = Ship(3);
+    ship.hit(0);
     ship.hit(1);
-    ship.hit(2);
     expect(ship.isSunk()).toBeFalsy();
   });
-  test('ship hit twice and sunk', () => {
+  test('ship is sunk', () => {
     const ship = Ship(2);
+    ship.hit(0);
     ship.hit(1);
-    ship.hit(2);
     expect(ship.isSunk()).toBeTruthy();
   });
 });
