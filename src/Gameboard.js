@@ -1,6 +1,21 @@
 const Gameboard = () => {
-  return {
+  const place = () => {
 
+  };
+  const receiveAttack = () => {
+
+  };
+  const haveAllSunk = () => {
+
+  };
+  const get = () => {
+
+  };
+  return {
+    place,
+    receiveAttack,
+    haveAllSunk,
+    get
   };
 };
 
