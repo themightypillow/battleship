@@ -9,12 +9,25 @@ describe('Gameboard', () => {
       'get'
     ]);
   });
-  xtest('place one ship on board and miss', () => {
+  test('place a ship', () => {
+    const board = Gameboard(2, 2);
+    expect(board.place(0, 0, 1, 0)).toBe(true);
+  });
+  xtest('cannot place diagonal ship', () => {
+    const board = Gameboard(2, 2);
+    expect(() => board.place(0, 0, 1, 1)).toThrow('Cannot place diagonal ship');
+  });
+  xtest('cannot place overlapping ships', () => {
+    const board = Gameboard(2, 2);
+    board.place(0, 0, 1, 0);
+    expect(() => board.place(0, 0, 0, 1)).toThrow('Ship overlaps with another');
+  });
+  xtest('make a miss', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
     expect(board.receiveAttack(0, 1)).toBe(false);
   });
-  xtest('place one ship on board and hit', () => {
+  xtest('make a hit', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
     expect(board.receiveAttack(1, 0)).toBe(true);
