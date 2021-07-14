@@ -12,25 +12,25 @@ describe('Gameboard', () => {
   xtest('place one ship on board and miss', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
-    expect(board.receiveAttack(0, 1)).toBeFalsy();
+    expect(board.receiveAttack(0, 1)).toBe(false);
   });
   xtest('place one ship on board and hit', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
-    expect(board.receiveAttack(1, 0)).toBeTruthy();
+    expect(board.receiveAttack(1, 0)).toBe(true);
   });
   xtest('all ships have not been sunk', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
     board.receiveAttack(0, 0);
-    expect(board.haveAllSunk()).toBeFalsy();
+    expect(board.haveAllSunk()).toBe(false);
   });
   xtest('all ships have been sunk', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
     board.receiveAttack(0, 0);
     board.receiveAttack(1, 0);
-    expect(board.haveAllSunk()).toBeTruthy();
+    expect(board.haveAllSunk()).toBe(true);
   });
   xtest('empty board is represented', () => {
     const board = Gameboard(2, 2);
@@ -50,12 +50,12 @@ describe('Gameboard', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
     board.receiveAttack(0, 1);
-    expect(board.get()[0][1].attacked).toBeTruthy();
+    expect(board.get()[0][1].attacked).toBe(true);
   });
   xtest('board with hit attack is represented', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
     board.receiveAttack(0, 0);
-    expect(board.get()[0][0].attacked).toBeTruthy();
+    expect(board.get()[0][0].attacked).toBe(true);
   });
 });
