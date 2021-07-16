@@ -51,6 +51,7 @@ const Player = (board, size, isHuman) => {
       return move;
     }
   };
+  
   return {
     play
   };

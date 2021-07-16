@@ -65,7 +65,12 @@ const Gameboard = (rows, columns) => {
     return ships.every(ship => ship.isSunk());
   };
   const get = () => {
-    return board.slice(0);
+    return board.map(row => row.map(space => {
+      return {
+        attacked: space.attacked,
+        ship: space.ship ? true : false
+      };
+    }));
   };
   return {
     place,
