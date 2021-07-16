@@ -48,49 +48,59 @@ describe('Gameboard', () => {
   test('empty board is represented', () => {
     const board = Gameboard(2, 2);
     expect(board.get()).toEqual([
-      [{ attacked: false, ship: null }, { attacked: false, ship: null }],
-      [{ attacked: false, ship: null }, { attacked: false, ship: null }]
+      [{ attacked: false, ship: false }, { attacked: false, ship: false }],
+      [{ attacked: false, ship: false }, { attacked: false, ship: false }]
     ]);
   });
   test('board with vertical ship is represented', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
-    const boardArray = board.get();
-    expect(boardArray[0][0].ship).not.toBeNull();
-    expect(boardArray[1][0].ship).not.toBeNull();
+    expect(board.get()).toEqual([
+      [{ attacked: false, ship: true }, { attacked: false, ship: false }],
+      [{ attacked: false, ship: true }, { attacked: false, ship: false }]
+    ]);
   });
   test('board with vertical ship with no order is represented', () => {
     const board = Gameboard(2, 2);
     board.place(1, 0, 0, 0);
-    const boardArray = board.get();
-    expect(boardArray[0][0].ship).not.toBeNull();
-    expect(boardArray[1][0].ship).not.toBeNull();
+    expect(board.get()).toEqual([
+      [{ attacked: false, ship: true }, { attacked: false, ship: false }],
+      [{ attacked: false, ship: true }, { attacked: false, ship: false }]
+    ]);
   });
   test('board with horizontal ship is represented', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 0, 1);
-    const boardArray = board.get();
-    expect(boardArray[0][0].ship).not.toBeNull();
-    expect(boardArray[0][1].ship).not.toBeNull();
+    expect(board.get()).toEqual([
+      [{ attacked: false, ship: true }, { attacked: false, ship: true }],
+      [{ attacked: false, ship: false }, { attacked: false, ship: false }]
+    ]);
   });
   test('board with horizontal ship with no order is represented', () => {
     const board = Gameboard(2, 2);
     board.place(0, 1, 0, 0);
-    const boardArray = board.get();
-    expect(boardArray[0][0].ship).not.toBeNull();
-    expect(boardArray[0][1].ship).not.toBeNull();
+    expect(board.get()).toEqual([
+      [{ attacked: false, ship: true }, { attacked: false, ship: true }],
+      [{ attacked: false, ship: false }, { attacked: false, ship: false }]
+    ]);
   });
   test('board with missed attack is represented', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
     board.receiveAttack(0, 1);
-    expect(board.get()[0][1].attacked).toBe(true);
+    expect(board.get()).toEqual([
+      [{ attacked: false, ship: true }, { attacked: true, ship: false }],
+      [{ attacked: false, ship: true }, { attacked: false, ship: false }]
+    ]);
   });
   test('board with hit attack is represented', () => {
     const board = Gameboard(2, 2);
     board.place(0, 0, 1, 0);
     board.receiveAttack(0, 0);
-    expect(board.get()[0][0].attacked).toBe(true);
+    expect(board.get()).toEqual([
+      [{ attacked: true, ship: true }, { attacked: false, ship: false }],
+      [{ attacked: false, ship: true }, { attacked: false, ship: false }]
+    ]);
   });
   test('cannot attack the same spot twice', () => {
     const board = Gameboard(2, 2);
