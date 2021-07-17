@@ -1,4 +1,4 @@
-import Gameboard from "../src/Gameboard";
+import Gameboard from '../src/Gameboard';
 
 describe('Gameboard', () => {
   test('create gameboard', () => {

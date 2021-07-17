@@ -1,10 +1,10 @@
-import Ship from "../src/Ship";
+import Ship from '../src/Ship';
 
 describe('Ship', () => {
   test('create ship', () => {
     expect(Object.keys(Ship())).toEqual([
-      "hit",
-      "isSunk"
+      'hit',
+      'isSunk'
     ]);
   });
   test('ship is hit', () => {
