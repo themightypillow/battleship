@@ -41,9 +41,10 @@ describe('Player', () => {
     const computer = Player(board, 2, false);
 
     test('make a legal move', () => {
-      const {row, column} = computer.play();
+      const {row, column, hit} = computer.play();
       expect(row >= 0 && row < 2).toBeTruthy();
       expect(column >= 0 && column < 2).toBeTruthy();
+      expect(hit).toBeDefined();
     });
     test('cannot make play after all spaces attacked', () => {
       computer.play();
