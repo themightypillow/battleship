@@ -16,7 +16,16 @@ describe('Player', () => {
     test('make legal move', () => {      
       expect(human.play(0, 0)).toEqual({
         row: 0,
-        column: 0
+        column: 0,
+        hit: false
+      });
+    });
+    test('make a hit', () => {
+      board.place(1, 1, 1, 1);
+      expect(human.play(1, 1)).toEqual({
+        row: 1,
+        column: 1,
+        hit: true
       });
     });
     test('make illegal move', () => {
