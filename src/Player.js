@@ -27,10 +27,11 @@ const Player = (board, size, isHuman) => {
   const play = (row, column) => {
     if(isHuman) {
       if(row >= size || column >= size) throw new Error('Space out of bounds');
-      board.receiveAttack(row, column);
+      const hit = board.receiveAttack(row, column);
       return {
         row,
-        column
+        column,
+        hit
       };
     }
     else {
@@ -41,6 +42,7 @@ const Player = (board, size, isHuman) => {
         try {
           const isHit = board.receiveAttack(move.row, move.column);
           success = true;
+          move.hit = isHit;
           if(isHit) moves.unshift(...setAdjacents(move.row, move.column));
         }
         catch(e) {
