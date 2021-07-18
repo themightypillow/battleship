@@ -1,16 +1,11 @@
 import Game from '../src/Game';
-import { defaultStart } from './data/default-board';
+import { defaultShips } from './data/default-board';
 
 describe('Game Loop', () => { 
-  Game.start([
-    { startRow: 4, startColumn: 2, endRow: 8, endColumn: 2},
-    { startRow: 1, startColumn: 1, endRow: 1, endColumn: 4},
-    { startRow: 4, startColumn: 6, endRow: 4, endColumn: 8},
-    { startRow: 7, startColumn: 7, endRow: 9, endColumn: 7},
-    { startRow: 6, startColumn: 0, endRow: 7, endColumn: 0}
-  ]);
-  
-  test('game not over in beginning', () => {
+  test('game should start with no errors', () => {
+    expect(() => Game.start(defaultShips)).not.toThrow();
+  });  
+  xtest('game not over in beginning', () => {
     expect(Game.isOver()).toBe(false);
   });
   xtest('computer attacks one after player attacks', () => {
