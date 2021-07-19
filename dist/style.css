@@ -1,0 +1,165 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid #e9e9e9;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+  font-family: 'Anton', sans-serif;
+  color: #2d2f31;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display {
+  display: flex;
+  justify-content: center;
+}
+
+.board-header, #info {
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.5rem 0;
+  font-weight: 900;
+  letter-spacing: 0.15rem;
+  border-radius: 5px;
+  color: #fbfcf7;
+  font-size: 0.8rem;
+}
+
+.main-header {
+  background-color: #f4f4f4;
+}
+
+.board {
+  display: grid;
+  grid-template-rows: repeat(11, 30px);
+  grid-template-columns: repeat(11, 30px);
+  grid-gap: 2px;
+  margin: 1rem 0;
+}
+
+.space.user {
+  background-color: #daf2fc;
+}
+
+.space.computer {
+  background-color: #e8e8e8;
+}
+
+.board-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  color: #939bab;
+}
+
+.ship {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: #d9dadc;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red {
+  background-color: #fd004c;
+}
+
+.slate {
+  background-color: #65708b;
+}
+
+.grey {
+  background-color: #f0eff4;
+}
+
+.sideways {
+  writing-mode: vertical-rl;
+  transform: scale(-1);
+  color: #65708b;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.computer-ship-column > div {
+  margin-bottom: 5px;
+}
+
+#computer-ships {
+  display: flex;
+  justify-content: space-between;
+  color: #2f2f2f;
+}
+
+#user-ships {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 10px;
+}
+
+#user-ships .sideways, #computer-ships .sideways {
+  grid-row: 1 / span 2;
+}
+
+#user-section, #computer-section {
+  margin-top: 1rem;
+}
+
+#user-section {
+  padding-right: 5rem;
+  border-right: 1px solid #e9e9e9;
+}
+
+#computer-section {
+  padding-left: 5rem;
+  border-left: 1px solid #e9e9e9;
+}
+
+#battleship {
+  grid-column: 2 / span 4;
+  border-radius: 15px 50% 50% 15px;
+}
+
+#destroyer {
+  grid-column: 6 / span 3;
+  border-radius: 10px;
+}
+
+#cruiser {
+  grid-column: 9 / span 2;
+  border-radius: 10px 50% 50% 10px;
+}
+
+#carrier {
+  grid-column: 2 / span 5;
+  border-radius: 10px;
+}
+
+#submarine {
+  grid-column: 7 / span 3;
+  border-radius: 10px 50% 50% 10px;
+}
+
+#info {
+  margin: 2rem 0;
+  width: 750px;
+}
