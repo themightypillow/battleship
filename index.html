@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Battleship</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@400;900&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Battleship</h1>
+  </header>
+  <main>
+    <div class="display">
+      <div id="user-section">
+        <header class="board-header red">Your Fleet</header>
+        <div class="board">
+          <div></div>
+          <div class="board-label">A</div>
+          <div class="board-label">B</div>
+          <div class="board-label">C</div>
+          <div class="board-label">D</div>
+          <div class="board-label">E</div>
+          <div class="board-label">F</div>
+          <div class="board-label">G</div>
+          <div class="board-label">H</div>
+          <div class="board-label">I</div>
+          <div class="board-label">J</div>
+        </div>
+        <div id="user-ships">
+          <div class="sideways">Shipyard</div>
+          <div id="battleship" class="grey ship">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div id="destroyer" class="grey ship">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div id="cruiser" class="grey ship">
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div id="carrier" class="grey ship">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div id="submarine" class="grey ship">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+      <div id="computer-section">
+        <header class="board-header slate">Opponent</header>
+        <div class="board">
+          <div></div>
+          <div class="board-label">A</div>
+          <div class="board-label">B</div>
+          <div class="board-label">C</div>
+          <div class="board-label">D</div>
+          <div class="board-label">E</div>
+          <div class="board-label">F</div>
+          <div class="board-label">G</div>
+          <div class="board-label">H</div>
+          <div class="board-label">I</div>
+          <div class="board-label">J</div>
+        </div>
+        <div id="computer-ships">
+          <div class="sideways">Graveyard</div>
+          <div class="computer-ship-column">
+            <div>Cruiser (2)</div>
+            <div>Submarine (3)</div>
+            <div>Destroyer (3)</div>
+          </div>
+          <div class="computer-ship-column">
+            <div>Battleship (4)</div>
+            <div>Aircraft Carrier (5)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="info" class="slate">Place Your Ships</div>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
