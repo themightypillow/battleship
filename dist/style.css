@@ -48,12 +48,23 @@ main {
   margin: 1rem 0;
 }
 
+.space {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .space.user {
   background-color: #daf2fc;
 }
 
 .space.computer {
   background-color: #e8e8e8;
+}
+
+.space.computer:hover {
+  background-color: #dddddd;
+  cursor: pointer;
 }
 
 .board-label {
@@ -70,12 +81,44 @@ main {
   align-items: center;
 }
 
+.battleship {
+  grid-column: 2 / span 4;
+  border-radius: 15px 50% 50% 15px;
+}
+
+.destroyer {
+  grid-column: 6 / span 3;
+  border-radius: 10px;
+}
+
+.cruiser {
+  grid-column: 9 / span 2;
+  border-radius: 10px 50% 50% 10px;
+}
+
+.carrier {
+  grid-column: 2 / span 5;
+  border-radius: 10px;
+}
+
+.submarine {
+  grid-column: 7 / span 3;
+  border-radius: 10px 50% 50% 10px;
+}
+
+.dot.red {
+  z-index: 3;
+}
+
 .dot {
   height: 12px;
   width: 12px;
-  background-color: #d9dadc;
   border-radius: 50%;
   display: inline-block;
+}
+
+.blue {
+  background-color: #56beff;
 }
 
 .red {
@@ -87,7 +130,24 @@ main {
 }
 
 .grey {
-  background-color: #f0eff4;
+  background-color: #e8e7ec;
+}
+
+.dark-grey {
+  background-color: #d2d3d5;
+}
+
+.darker-grey {
+  background-color: #bcbdbf;
+}
+
+.green {
+  background-color: #07be69;
+}
+
+.green:hover {
+  background-color: #069c56;
+  cursor: pointer;
 }
 
 .sideways {
@@ -132,31 +192,7 @@ main {
 #computer-section {
   padding-left: 5rem;
   border-left: 1px solid #e9e9e9;
-}
-
-#battleship {
-  grid-column: 2 / span 4;
-  border-radius: 15px 50% 50% 15px;
-}
-
-#destroyer {
-  grid-column: 6 / span 3;
-  border-radius: 10px;
-}
-
-#cruiser {
-  grid-column: 9 / span 2;
-  border-radius: 10px 50% 50% 10px;
-}
-
-#carrier {
-  grid-column: 2 / span 5;
-  border-radius: 10px;
-}
-
-#submarine {
-  grid-column: 7 / span 3;
-  border-radius: 10px 50% 50% 10px;
+  pointer-events: none;
 }
 
 #info {
