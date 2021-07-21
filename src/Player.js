@@ -14,13 +14,10 @@ const Player = (board, size, isHuman) => {
 
   const setAdjacents = (row, column) => {
     const list = [];
-    for(let r = row - 1; r < row + 2; r++) {
-      if(r < 0 || r >= size) continue;
-      for(let c = column - 1; c < column + 2; c++) {
-        if(c < 0 || c >= size || (r === row && c === column)) continue;
-        list.push({ row: r, column: c});
-      }
-    }
+    if(row - 1 >= 0) list.push({row: row - 1, column});
+    if(column + 1 <= size) list.push({row, column: column + 1});
+    if(row + 1 <= size) list.push({row: row + 1, column});
+    if(column - 1 >= 0) list.push({row, column: column - 1});
     return list;
   };
 
@@ -35,7 +32,7 @@ const Player = (board, size, isHuman) => {
       };
     }
     else {
-      const move = moves.shift();
+      let move = moves.shift();
       if(!move) throw new Error('All spaces attacked');
       let success = false;
       while(!success) {
